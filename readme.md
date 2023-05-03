@@ -1,4 +1,4 @@
-Code For Paper “DiscoPrompt: Path Prediction Prompt Tuning for Implicit Discourse Relation Recognition”
+Code For ACL2023 Paper “DiscoPrompt: Path Prediction Prompt Tuning for Implicit Discourse Relation Recognition”
 
 It contains the following file:
 * DiscoPrompt.py
