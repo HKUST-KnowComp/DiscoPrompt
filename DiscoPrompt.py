@@ -181,7 +181,7 @@ elif args.dataset == "ji-seccon":
     "Temporal.Synchrony"     :["when", "Synchrony"],
     }
 
-elif args.dataset == "ji-connectonly":      
+elif args.dataset == "ji-connectiveonly":      
     num_classes = 11 #args.num_classes
     Processor = PDTB2Processor(num_labels=num_classes)
     
