@@ -525,9 +525,6 @@ for epoch in range(1000000):
     if leave_training:
         break
 
-prompt_model.load_state_dict(torch.load(f"{project_root}/ckpts/{this_run_unicode}.ckpt"))
-prompt_model = prompt_model.cuda()#.half()
-
 # a simple measure for the convergence speed.
 thres99 = 0.99 * best_val_acc
 thres98 = 0.98 * best_val_acc
@@ -550,7 +547,7 @@ print(content_write)
 
 
 print("11class-Accuracy oriented Performance")
-prompt_model.load_state_dict(torch.load(f"{project_root}/11class_acc_ckpt/{this_run_unicode}.ckpt"))
+prompt_model.load_state_dict(torch.load(f"{project_root}/ckpts/{this_run_unicode}.ckpt"))
 prompt_model = prompt_model.cuda()#.half()
 
 fianl_test_acc, final_test_F1_score, final_test_Acc_4class, final_test_F1_score_4class = evaluate(prompt_model, test_dataloader, dataset['test'], Processor, use_cuda, num_classes, test = True)
