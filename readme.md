@@ -20,7 +20,7 @@ It contains the following file:
 --batch_size 4 
 --eval_every_steps 250 
 --dataset ji 
---model_name_or_path t5-large 
+--model_name_or_path google/t5-v1_1-large
 --result_file ./DiscoPrompt/results/DiscoPromptClassification_PDTB2.txt 
 --ckpt_file DiscoPromptClassification_PDTB2 
 --prompt_lr 0.3"
