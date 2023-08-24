@@ -23,7 +23,7 @@ from openprompt.plms import load_plm
 from transformers import AdamW, get_linear_schedule_with_warmup,get_constant_schedule_with_warmup
 from transformers.optimization import Adafactor, AdafactorSchedule  # use Adafactor is the default setting for T5
 
-from data_utils import PDTB2Processor, PDTB2EXPProcessor,PDTB2EXPProcessor_1, PDTB3Processor, CoNLL15Processor
+from data_utils import PDTB2Processor, PDTB3Processor, CoNLL15Processor
 from utils import evaluate
 from openprompt.prompts import PTRTemplate
 from discoverbalizer import DiscoVerbalizer
@@ -208,29 +208,29 @@ elif args.dataset == "ji-connectiveonly":
     "Temporal.Synchrony"     :["when"],
     }
     
-elif args.dataset == "ji-exp":      
-    num_classes = 11 #args.num_classes
-    Processor = PDTB2EXPProcessor_1(num_labels=num_classes)
+# elif args.dataset == "ji-exp":      
+#     num_classes = 11 #args.num_classes
+#     Processor = PDTB2EXPProcessor(num_labels=num_classes)
     
-    data_dir = "./DiscoPrompt/PDTB2-Exp"
-    dataset = {}
-    dataset['train'] = Processor.get_examples(data_dir, 'train') 
-    dataset['validation'] = Processor.get_examples(data_dir, 'dev')
-    dataset['test'] = Processor.get_examples(data_dir, 'test')
-    class_labels = Processor.get_labels()
-    label_words = {
-    "Comparison.Concession"  :["nonetheless", "Comparison", "Concession"],
-    "Comparison.Contrast"    :["however", "Comparison", "Contrast"],
-    "Contingency.Cause"      :["so", "Contingency", "Cause"],
-    "Contingency.Pragmatic cause.Justification"  :["indeed", "Contingency", "Pragmatic"],
-    "Expansion.Alternative"  :["instead", "Expansion", "Alternative"],
-    "Expansion.Conjunction"  :["also", "Expansion", "Conjunction"],
-    "Expansion.Instantiation":["for", "Expansion", "Instantiation"],
-    "Expansion.List"         :["and", "Expansion", "List"],
-    "Expansion.Restatement"  :["specifically", "Expansion", "Restatement"],
-    "Temporal.Asynchronous"  :["before", "Temporal", "Asynchronous"],
-    "Temporal.Synchrony"     :["when", "Temporal", "Synchrony"],
-    }
+#     data_dir = "./DiscoPrompt/PDTB2-Exp"
+#     dataset = {}
+#     dataset['train'] = Processor.get_examples(data_dir, 'train') 
+#     dataset['validation'] = Processor.get_examples(data_dir, 'dev')
+#     dataset['test'] = Processor.get_examples(data_dir, 'test')
+#     class_labels = Processor.get_labels()
+#     label_words = {
+#     "Comparison.Concession"  :["nonetheless", "Comparison", "Concession"],
+#     "Comparison.Contrast"    :["however", "Comparison", "Contrast"],
+#     "Contingency.Cause"      :["so", "Contingency", "Cause"],
+#     "Contingency.Pragmatic cause.Justification"  :["indeed", "Contingency", "Pragmatic"],
+#     "Expansion.Alternative"  :["instead", "Expansion", "Alternative"],
+#     "Expansion.Conjunction"  :["also", "Expansion", "Conjunction"],
+#     "Expansion.Instantiation":["for", "Expansion", "Instantiation"],
+#     "Expansion.List"         :["and", "Expansion", "List"],
+#     "Expansion.Restatement"  :["specifically", "Expansion", "Restatement"],
+#     "Temporal.Asynchronous"  :["before", "Temporal", "Asynchronous"],
+#     "Temporal.Synchrony"     :["when", "Temporal", "Synchrony"],
+#     }
 
 elif args.dataset == "lin":      
     num_classes = 11 #args.num_classes
